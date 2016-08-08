@@ -1,7 +1,7 @@
 # This package should install (as dependencies) and configure all of the software that makes up Alan's DE.
 
 # Maintainer: Alan Reed
-pkgname=AlanChromebookConfig # '-bzr', '-git', '-hg' or '-svn'
+pkgname=ChromebookConfig-git # '-bzr', '-git', '-hg' or '-svn'
 pkgver=0.1
 pkgrel=1
 pkgdesc="Alan's Chromebook Config"
@@ -11,8 +11,25 @@ license=('unknown')
 depends=('xf86-input-synaptics')
 
 makedepends=('git') 
-provides=("${pkgname}")
+
+provides=("${pkgname%-git}")
 install=
+
+source=('git+https://github.com/alanpreed/ChromebookConfig.git')
+md5sums=('SKIP')
+
+
+pkgver() {
+	cd "$srcdir/${pkgname%-git}"
+
+	# Git, no tags available (from example PKGBUILD)
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+	cd "$srcdir/${pkgname%-git}"
+
+
 
 md5sums=('SKIP')
 
