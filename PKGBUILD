@@ -2,7 +2,7 @@
 
 # Maintainer: Alan Reed
 pkgname=ChromebookConfig-git
-pkgver=0.1
+pkgver=r7.398ca2d
 pkgrel=1
 pkgdesc="Alan's Chromebook Config"
 arch=('x86_64')
@@ -35,4 +35,8 @@ package() {
 	# Disable suspend on lid close
 	install -d $pkgdir/etc/systemd/logind.conf.d/
 	cp -r configs/logind/. $pkgdir/etc/systemd/logind.conf.d/
+	
+	# This needs to be manually symlinked to ~/.xbindkeysrc
+	install -d $pkgdir/usr/share/AlanChromebook/xbindkeys/
+	cp -r configs/xbindkeys/. $pkgdir/usr/share/AlanChromebook/xbindkeys/
 }

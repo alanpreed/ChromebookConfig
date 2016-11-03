@@ -1,0 +1,19 @@
+# Print screen to clipboard
+"gnome-screenshot -c"
+	Print
+
+"xbacklight -dec 10"
+	Alt + F6
+
+"xbacklight -inc 10"
+	Alt + F7
+
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	Alt + F8
+
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+	Alt + F9
+
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+	Alt + F10
+
